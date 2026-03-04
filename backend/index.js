@@ -2,11 +2,14 @@ import express from "express";
 import cors from 'cors';
 const app = express();
 const port  = 5555;
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/test', (req,res) => {
+app.get('/', (req,res) => {
     res.send('Hello World!');
 });
 
