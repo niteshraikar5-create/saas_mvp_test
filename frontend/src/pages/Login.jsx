@@ -1,8 +1,12 @@
 import { useState } from "react";
 
 const Login = () => {
-  const [credentials, setCredential] = useState({ username: "", password: "" });
+  const [credentials, setCredential] = useState({ username: "", password: "", confirm_password: ""  });
+  const [isLogin, setIsLogin] = useState(true);
 
+  const submitCredentials  = () => {
+    console.log('credentials', credentials);
+  }
   const updateCredentials = (event) => {
     const { name, value } = event.target;
     setCredential((prevValue) => {
@@ -34,11 +38,31 @@ const Login = () => {
           onChange={updateCredentials}
           value={credentials.password}
         />
+        {!isLogin &&
+        <input
+          className="w-full border p-2 mb-4 rounded"
+          type="password"
+          name="confirm_password"
+          placeholder="Confirm Password"
+          onChange={updateCredentials}
+          value={credentials.confirm_password}
+        />}
         <button
-          type="{submit}"
+          type="button"
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          onClick={() => setIsLogin(!isLogin)}
+          value='true'
         >
-          Sign In
+         {isLogin ? 'Sign Up' : 'Sign In'} 
+        </button>
+        <br/>
+        <br/>
+        <button
+          type="{button}"
+          className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700"
+          onClick={submitCredentials}
+        >
+          {isLogin ? 'Login' : 'Register'} 
         </button>
       </div>
     </div>

@@ -5,7 +5,7 @@ const { PrismaClient } = pkg
 const prisma = new PrismaClient()
 const app = express();
 const port  = 5555;
-await prisma.user.create({
+/* await prisma.user.create({
     data: {
     email: "test@gmail.com",
     username: "john123",
@@ -31,7 +31,7 @@ try {
 }
 let users = await prisma.user.findMany();
 console.log('users',users);
-
+*/
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
