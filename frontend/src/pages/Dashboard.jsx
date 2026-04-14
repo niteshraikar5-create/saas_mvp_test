@@ -10,23 +10,6 @@ const Login = () => {
   return (
     <>
       <h1>Login</h1>
-      <form>
-        Username
-        <input
-          onChange={updateCredentials}
-          type="text"
-          value={credentials.username}
-        />
-        <br />
-        Password
-        <input
-          onChange={updateCredentials}
-          type="password"
-          value={credentials.password}
-        />
-        <br />
-        <button onClick>Submit</button>
-      </form>
     </>
   );
 };
